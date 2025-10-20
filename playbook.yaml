@@ -1,0 +1,13 @@
+- name: Test Semaphore run - print hostname
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Run hostname
+      ansible.builtin.command: hostname
+      register: host_out
+      changed_when: false
+
+    - name: Show hostname
+      ansible.builtin.debug:
+        msg: "Hostname: {{ host_out.stdout }}"
+
