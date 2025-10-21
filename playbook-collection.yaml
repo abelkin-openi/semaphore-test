@@ -1,6 +1,6 @@
 ---
 - name: Test community.general collection
-  hosts: localhost
+  hosts: all
   gather_facts: false
   tasks:
     - name: Generate a UUID (from community.general)
