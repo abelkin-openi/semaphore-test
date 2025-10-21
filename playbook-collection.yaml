@@ -7,6 +7,10 @@
     - name: Get hostname from facts
       set_fact:
         gathered_hostname: "{{ ansible_facts.hostname }}"
+    - ansible.posix.sysctl:
+        name: vm.swappiness
+        value: '65'
+        state: present
 
           #    - name: Generate a pet
           #      community.general.random_pet:
@@ -16,6 +20,6 @@
           #      debug:
           #        var: pet
           #
-    - name: Simple A record (IPV4 address) lookup for example.com
-      ansible.builtin.debug:
-        msg: "{{ lookup('community.general.dig', 'google.com.')}}"
+          #    - name: Simple A record (IPV4 address) lookup for example.com
+          #      ansible.builtin.debug:
+          #        msg: "{{ lookup('community.general.dig', 'google.com.')}}"
