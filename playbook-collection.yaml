@@ -1,8 +1,13 @@
 ---
 - name: Test community.general collection
   hosts: all
-  gather_facts: false
+  become: true
+  gather_facts: true
   tasks:
+    - name: Get hostname from facts
+      set_fact:
+        gathered_hostname: "{{ ansible_facts.hostname }}"
+
     - name: Generate a pet
       community.general.random_pet:
       register: pet
