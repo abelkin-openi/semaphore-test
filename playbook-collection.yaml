@@ -3,11 +3,11 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Generate a UUID (from community.general)
-      community.general.uuid_gen:
-      register: uuid_out
+    - name: Generate a pet
+      community.general.random_pet:
+      register: pet
 
-    - name: Show the UUID
+    - name: Show the pet
       debug:
-        var: uuid_out.uuid
+        var: pet
 
