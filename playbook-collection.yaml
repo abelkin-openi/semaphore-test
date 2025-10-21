@@ -8,11 +8,11 @@
       set_fact:
         gathered_hostname: "{{ ansible_facts.hostname }}"
 
-    - name: Generate a pet
-      community.general.random_pet:
-      register: pet
-
-    - name: Show the pet
-      debug:
-        var: pet
-
+          #    - name: Generate a pet
+          #      community.general.random_pet:
+          #      register: pet
+          #
+          #    - name: Show the pet
+          #      debug:
+          #        var: pet
+          #
